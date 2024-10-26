@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@fullcalendar/bootstrap": "^6.1.15",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "jquery": "^3.7.1"
+  }
+}
