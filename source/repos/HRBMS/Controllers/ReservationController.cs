@@ -1,19 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using HRBMS.Models; // Ensure this is the correct namespace for your models
-using Microsoft.EntityFrameworkCore; // Required for DbContext
-
+using HRBMS.Models;  
+using Microsoft.EntityFrameworkCore; 
 public class ReservationController : Controller
 {
     private readonly ApplicationDbContext _context;
 
-    // Constructor with dependency injection
     public ReservationController(ApplicationDbContext context)
     {
         _context = context;
     }
 
-    // Fetch reservations for FullCalendar using AJAX
     public JsonResult GetReservations()
     {
         var reservations = _context.Reservations.Select(r => new
@@ -25,16 +22,14 @@ public class ReservationController : Controller
             confirmed = r.IsConfirmed
         }).ToList();
 
-        return Json(reservations); // No JsonRequestBehavior in ASP.NET Core
+        return Json(reservations); 
     }
 
-    // Display the reservation form
-    public IActionResult Create() // Use IActionResult in ASP.NET Core
+    public IActionResult Create()
     {
         return View();
     }
 
-    // Create a new reservation (POST)
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create(Reservation reservation)
@@ -49,12 +44,11 @@ public class ReservationController : Controller
         return View(reservation);
     }
 
-    // Dispose the context to release resources (not necessary with DI)
     protected override void Dispose(bool disposing)
     {
         if (disposing)
         {
-            _context.Dispose(); // This line may not be needed with dependency injection
+            _context.Dispose(); 
         }
         base.Dispose(disposing);
     }
