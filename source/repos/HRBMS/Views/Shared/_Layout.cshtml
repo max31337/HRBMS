@@ -7,8 +7,33 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        main {
+            flex-grow: 1;
+            padding-bottom: 2rem;
+        }
+
+        footer {
+            margin-top: auto; 
+        }
+
+        }
+    </style>
+
 </head>
 <body>
+    <div class="wrapper">
         <header>
             <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container-fluid">
@@ -42,6 +67,7 @@
                 &copy; 2024 - HRBMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
